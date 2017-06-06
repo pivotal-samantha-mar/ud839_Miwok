@@ -26,7 +26,7 @@ public class Word {
     }
 
     /** Get miwok translation of the word */
-    public String getmMiwokTranslation() {
+    public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
 
