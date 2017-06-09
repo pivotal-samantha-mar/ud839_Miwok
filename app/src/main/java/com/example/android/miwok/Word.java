@@ -17,19 +17,24 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = - 1;
 
+    /**Audio*/
+    private int mAudioResourceId;
+
     /** Constructor phrases */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
 
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation =miwokTranslation;
+       mAudioResourceId = audioResourceId;
 
     }
 
     /** Constructor with images */
-    public Word (String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word (String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /** Get default translation of the word */
@@ -47,9 +52,22 @@ public class Word {
         return mImageResourceId;
     }
 
+   public int getAudioResourceId() {
+       return mAudioResourceId;
+   }
+
     public boolean hasImage() {
         return mImageResourceId !=NO_IMAGE_PROVIDED;
     }
 
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
 }
