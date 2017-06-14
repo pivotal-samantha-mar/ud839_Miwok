@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 package com.example.android.miwok;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,9 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager());
+        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
 
         viewPager.setAdapter(adapter);
+
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
 
     }
